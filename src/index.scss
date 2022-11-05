@@ -35,10 +35,19 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+a,
+a:hover {
+  text-decoration: none;
+}
+
+.header,
+.menuTop {
+  grid-template: ".content" auto/1fr $width-wide-layout 1fr;
+}
+
 .header {
   background-color: #001e28;
   display: grid;
-  grid-template: ".content" auto/1fr $width-wide-layout 1fr;
 
   .header__content {
     display: grid;
@@ -67,7 +76,7 @@ body {
 
       .header__logo {
         height: 32px;
-        width: 275px;
+        // width: 275px;
       }
     }
 
@@ -127,6 +136,10 @@ body {
           right: 0;
           top: 0;
           z-index: 100;
+        }
+
+        .modal__dimmer--close {
+          display: none;
         }
 
         .header__text {
@@ -295,4 +308,97 @@ body {
   min-height: 320px;
   top: 90px;
   width: 100%;
+}
+
+.menuTop,
+.menuTop__content {
+  background-color: #001e28;
+  display: grid;
+}
+
+.menuTop {
+  .menuTop__content {
+    grid-area: content;
+    grid-auto-flow: column;
+    grid-template-columns: max-content 1fr max-content;
+    grid-template-rows: 48px;
+    position: relative;
+  }
+
+  .menuTop__item {
+    color: #c8cdcd;
+    cursor: pointer;
+    display: grid;
+    font-weight: 700;
+    grid-template:
+      " . . . ." 8px
+      " . icon text ." 20px
+      " . . . ." 16px
+      " . border border ." 4px /12px max-content max-content 12px;
+    place-items: center;
+    position: relative;
+
+    .menuTop__icon {
+      grid-area: icon;
+      height: 20px;
+      margin-right: 8px;
+      width: 20px;
+    }
+
+    .menuTop__text {
+      grid-area: text;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+  }
+
+  .menuTop__item--active,
+  .menuTop__item:hover {
+    color: #eee;
+  }
+
+  .menuTop__item--active::before {
+    background-color: #c80037;
+    border-radius: 1.5px 1.5px 0 0;
+    content: "";
+    grid-area: border;
+    height: 100%;
+    width: 100%;
+  }
+
+  .menuTop__items {
+    display: flex;
+    flex-flow: row wrap;
+    overflow: hidden;
+  }
+
+  .menuMinority {
+    box-sizing: border-box;
+    font-weight: 700;
+    text-transform: uppercase;
+    user-select: none;
+
+    .menuMinority__title {
+      color: #c8cdcd;
+      cursor: pointer;
+      display: grid;
+      grid-template:
+        " . . . . . " 8px
+        " . text . arrow . " 20px
+        " . . . . . " 16px
+        " . border border border . " 4px/14px max-content 8px 12px 14px;
+      place-items: center;
+
+      .menuMinority__text {
+        grid-area: text;
+      }
+
+      .menuMinority__arrow {
+        grid-area: arrow;
+        height: 8px;
+        place-self: center;
+        width: 12px;
+      }
+    }
+  }
 }

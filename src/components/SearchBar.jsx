@@ -7,8 +7,18 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 const Searchbar = () => {
     const [league, setLeague] = useState("");
 
+    const handleClose = () => {
+        let modalWindow = document.getElementById("modal-state").classList;
+        modalWindow.replace("modal__dimmer", "modal__dimmer--close");
+        let seachWindow = document.getElementById("search-window").classList;
+        seachWindow.remove("header__button--active");
+    }
+
+    const handleClick = (event) => {
+        event.stopPropagation();
+    };
+
     const handleChange = (event) => {
-        event.preventDefault();
         setLeague(event.target.value);
     };
 
@@ -17,16 +27,17 @@ const Searchbar = () => {
         <Stack
             className='modal__window modal__window--search'
             direction='column'
+            onClick={handleClick}
         >
             <div className='modal__header'>
                 <h3 className='searchDialog__title'>Tìm kiếm</h3>
-                <FontAwesomeIcon title='Đóng cửa sổ' className='modal__closeButton' icon={faXmark} />
+                <FontAwesomeIcon title='Đóng cửa sổ' className='modal__closeButton' icon={faXmark} onClick={handleClose} />
             </div>
             <div className='searchInput'>
                 <input placeholder='Tìm kiếm' className='searchInput__input' maxLength={30} />
                 <div className='dropDown'>
                     <select className='dropDown__selectedValue' value={league} onChange={handleChange}>
-                        <option value='none' selected>Chọn giải đấu</option>
+                        <option value='none'>Chọn giải đấu</option>
                         <option value='epl'>Premier League</option>
                         <option value='lga'>Laliga</option>
                         <option value='lg1'>League 1</option>
@@ -44,6 +55,7 @@ const Searchbar = () => {
                 </div>
             </div>
         </Stack>
+
     )
 }
 

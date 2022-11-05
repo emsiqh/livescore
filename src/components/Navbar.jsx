@@ -2,15 +2,21 @@ import { Box, Stack } from '@mui/material';
 import mainLogo from '../images/logo.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faUser, faBars } from '@fortawesome/free-solid-svg-icons'
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { SearchBar } from '../components';
 
 const Navbar = () => {
-    const [activeSearch, setActiveSearch] = useState(true);
+    const [activeSearch, setActiveSearch] = useState(false);
 
-    function handleSearch(e) {
-        // setActiveSearch(!activeSearch);
-        e.stopPropagation();
+    // useEffect((event) => {
+    //     console.log(".");
+    //     setActiveSearch(!activeSearch);
+    // }, [activeSearch])
+
+    function handleSearch(event) {
+        console.log(activeSearch);
+        event.preventDefault();
+        setActiveSearch(!activeSearch);
     }
 
     return (
@@ -21,13 +27,13 @@ const Navbar = () => {
                 </a>
                 {/* Search */}
                 <div className='header__block header__block--search'>
-                    <div id='search-window' className={`header__button header__button${activeSearch ? '--active' : ''}`} onClick={handleSearch}>
+                    <div id='search-window' className={"header__button" + `${activeSearch ? ' header__button--active' : ''}`} onClick={handleSearch}>
                         <span className='searchIcon'>
                             <FontAwesomeIcon className='header__icon' icon={faMagnifyingGlass} />
                         </span>
-                        <Box className='modal__dimmer' style={{ display: activeSearch ? 'block' : 'none' }}>
+                        <div id='modal-state' className={`${activeSearch ? 'modal__dimmer' : 'modal__dimmer--close'}`}>
                             <SearchBar />
-                        </Box>
+                        </div>
                     </div>
                 </div>
                 {/* User */}
