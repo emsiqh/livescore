@@ -376,7 +376,6 @@ a:hover {
     box-sizing: border-box;
     font-weight: 700;
     text-transform: uppercase;
-    user-select: none;
 
     .menuMinority__title {
       color: #c8cdcd;
@@ -398,6 +397,98 @@ a:hover {
         height: 8px;
         place-self: center;
         width: 12px;
+      }
+    }
+  }
+}
+
+// Footer
+
+.footerContainer {
+  background: #010a0f;
+  display: grid;
+  position: relative;
+
+  .footerContainer__content {
+    grid-area: content;
+
+    .selfPromo {
+      display: grid;
+      font-size: 13px;
+      background: #010a0f;
+
+      .selfPromo__main {
+        display: grid;
+        grid-template: " project social apps" minmax(200px, auto) / 434px 259px auto;
+        padding: 66px 16px 46px;
+
+        .selfPromo__box--project {
+          grid-area: project;
+
+          .selfPromo__boxContent {
+            column-count: 2;
+          }
+        }
+
+        .selfPromo__box--social {
+          grid-area: social;
+        }
+
+        .selfPromo__box--apps {
+          grid-area: apps;
+
+          .selfPromo__boxContent {
+            color: #c8cdcd;
+            margin-bottom: 20px;
+            margin-top: 28px;
+          }
+
+          .selfPromo__app {
+            color: #c8cdcd;
+            display: flex;
+            margin-bottom: 8px;
+            width: fit-content;
+          }
+        }
+
+        .selfPromo__boxTitle {
+          color: #c8cdcd;
+          font-weight: 700;
+          letter-spacing: 0.4px;
+          margin-bottom: 20px;
+          text-transform: uppercase;
+        }
+
+        .selfPromo__boxItemWrapper {
+          break-inside: avoid;
+          display: flex;
+
+          .selfPromo__boxItem {
+            align-items: center;
+            color: #eee;
+            cursor: pointer;
+            display: flex;
+            line-height: 16px;
+            margin-right: 8px;
+            padding: 10px 0;
+            word-break: break-word;
+          }
+        }
+
+        .selfPromo__icon {
+          color: #eee;
+          height: 14px;
+          margin-right: 12px;
+          width: 14px;
+        }
+
+        .selfPromo__appText {
+          color: #eee;
+          cursor: pointer;
+          line-height: 16px;
+          margin-right: 8px;
+          word-break: break-word;
+        }
       }
     }
   }

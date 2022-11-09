@@ -1,13 +1,14 @@
 import React from 'react';
 import { Box } from '@mui/material';
 
-import { Navbar, MenuTop } from './components';
+import { Navbar, MenuTop, Footer } from './components';
 
 const App = () => {
     return (
         <Box>
             <Navbar />
             <MenuTop />
+            <Footer />
         </Box>
     )
 }
