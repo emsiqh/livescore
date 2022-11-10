@@ -31,7 +31,7 @@ const Navbar = () => {
                         <span className='searchIcon'>
                             <FontAwesomeIcon className='header__icon' icon={faMagnifyingGlass} />
                         </span>
-                        <div id='modal-state' className={`${activeSearch ? 'modal__dimmer' : 'modal__dimmer--close'}`}>
+                        <div id='modal-state' className={`modal__dimmer${activeSearch ? '' : ' modal__dimmer--close'} modal__dimmer--search`}>
                             <SearchBar />
                         </div>
                     </div>

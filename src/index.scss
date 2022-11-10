@@ -35,6 +35,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+a {
+  color: #c8cdcd;
+}
+
 a,
 a:hover {
   text-decoration: none;
@@ -298,6 +302,67 @@ a:hover {
       margin-bottom: 12px;
       padding-left: 8px;
       text-transform: uppercase;
+    }
+
+    .searchResult {
+      display: grid;
+      box-sizing: border-box;
+      grid-template-areas:
+        "participantImage participantName myTeamsIcon"
+        "participantImage participantCountry myTeamsIcon";
+      grid-template-rows: auto auto;
+      grid-template-columns: min-content 1fr 32px;
+      grid-column-gap: 12px;
+      border-radius: 8px;
+      padding: 8px;
+      width: 100%;
+
+      .searchResult__participantImageWrapper {
+        grid-area: participantImage;
+        align-items: center;
+        background: #eee;
+        border: 1px solid #001e28;
+        border-radius: 8px;
+        display: flex;
+        height: 36px;
+        justify-content: center;
+        width: 36px;
+
+        .searchResult__participantImage {
+          height: 30px;
+          width: 30px;
+          object-fit: cover;
+        }
+      }
+
+      .searchResult__participantName {
+        grid-area: participantName;
+        color: #eee;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .searchResult__participantCountry {
+        color: #c8cdcd;
+        font-size: 11px;
+        text-transform: uppercase;
+        grid-area: participantCountry;
+      }
+
+      .searchResult__myTeamIcon {
+        grid-area: myTeamsIcon;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: initial;
+        align-self: center;
+        height: 32px;
+        width: 32px;
+      }
+    }
+
+    .searchResult:hover {
+      background-color: rgba(153, 153, 153, 0.2);
     }
   }
 }

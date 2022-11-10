@@ -166,6 +166,7 @@ $XL: 1187px;
   }
 }
 
+// 639px
 @include Responsive(SM) {
   .header {
     .header__content {
@@ -196,10 +197,30 @@ $XL: 1187px;
           .header__text {
             display: none;
           }
+
+          .modal__dimmer--search {
+            top: 48px;
+          }
         }
 
         .header__button--user {
           padding: 0;
+        }
+
+        #search-window {
+          .dropDown {
+            width: 100%;
+            height: 36px;
+            min-width: auto;
+            padding: 0;
+          }
+
+          .dropDown__selectedValue {
+            box-sizing: border-box;
+            font-size: 11px;
+            height: 100%;
+            padding: 4px 8px;
+          }
         }
       }
 
@@ -212,6 +233,39 @@ $XL: 1187px;
         height: 16px;
         width: 16px;
       }
+    }
+  }
+
+  // modal
+  .modal__window--search {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-sizing: border-box;
+    height: 100%;
+    left: auto;
+    max-height: none;
+    max-width: none;
+    top: auto;
+    transform: none;
+    width: 100%;
+  }
+
+  .modal__window {
+    .modal__header {
+      display: none;
+    }
+
+    .searchInput {
+      margin: 16px;
+    }
+
+    .searchHint {
+      margin: 0 16px 16px;
+    }
+
+    .searchResults {
+      margin-bottom: 8px;
+      padding: 0 8px;
     }
   }
 
