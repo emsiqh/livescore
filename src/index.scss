@@ -45,8 +45,9 @@ a:hover {
 }
 
 .header,
-.menuTop {
-  grid-template: ".content" auto/1fr $width-wide-layout 1fr;
+.menuTop,
+.container {
+  grid-template: ". content ." auto/1fr $width-wide-layout 1fr;
 }
 
 .header {
@@ -467,8 +468,202 @@ a:hover {
   }
 }
 
-// Footer
+// Container
+.container {
+  display: grid;
+  background-color: #010a0f;
 
+  .container__content {
+    background-color: #010a0f;
+    grid-area: content;
+    position: relative;
+
+    .container__main {
+      .container__mainInner {
+        display: grid;
+        grid-template-rows: minmax(calc(100vh - 160px), 1fr);
+        grid-template-columns: 172px auto;
+        grid-template-areas: "myMenu liveTable";
+        padding-top: 24px;
+        position: relative;
+
+        // Sidebar
+        .container__myMenu {
+          grid-area: myMenu;
+          margin: 0 8px;
+
+          .category-left-menu {
+            border-bottom: 1px solid white;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+
+            .league__heading {
+              align-items: center;
+              border-bottom: 1px solid rgba(238, 238, 238, 0.06);
+              color: #eee;
+              display: flex;
+              line-height: 31px;
+              margin: 0 0 12px 8px;
+
+              .league__heading--icon {
+                height: 16px;
+                margin-right: 8px;
+                width: 16px;
+              }
+
+              .league__heading--head {
+                font-weight: 700;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                text-transform: uppercase;
+              }
+            }
+
+            .league__template {
+              align-items: center;
+              color: #c8cdcd;
+              cursor: pointer;
+              display: grid;
+              font-size: 13px;
+              grid-template-columns: 1fr 24px;
+              line-height: 26px;
+              margin-left: 8px;
+
+              .league__templateFlag {
+                height: 12px;
+                margin-right: 8px;
+                width: 18px;
+              }
+
+              .league__templateText {
+                line-height: 24px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }
+            }
+
+            .league__templateTop {
+              color: #eee;
+              border-radius: 4px;
+              grid-template-columns: 26px 1fr;
+              margin: 0 0 4px;
+              padding: 0 8px;
+            }
+          }
+        }
+
+        // Main table
+        .container__liveTableWrapper {
+          grid-area: liveTable;
+          border-radius: 8px;
+          min-height: 100vh;
+
+          .container__liveTable {
+            border-radius: 8px;
+
+            .container__fsbody {
+              background-color: #00141e;
+              border-radius: 8px;
+              padding: 16px 12px 4px;
+
+              #live-table {
+                box-sizing: border-box;
+                position: relative;
+
+                .filters__tab {
+                  align-items: center;
+                  background-color: #0f2d37;
+                  border-radius: 8px;
+                  color: #c8cdcd;
+                  cursor: pointer;
+                  display: flex;
+                  font-size: 12px;
+                  height: 28px;
+                  margin-right: 8px;
+                  padding: 0 12px;
+
+                  .filters__text {
+                    font-weight: 700;
+                    letter-spacing: 0.4px;
+                    line-height: 12px;
+                    text-transform: uppercase;
+                    white-space: nowrap;
+                  }
+                }
+
+                .filters__tab.selected {
+                  background-color: #c80037;
+                  color: #eee;
+                  cursor: default;
+                  pointer-events: none;
+                }
+
+                .calendarCont {
+                  align-self: flex-start;
+                  margin-left: 8px;
+
+                  .calendar {
+                    align-self: flex-start;
+                    background-color: #010a0f;
+                    border: 1px solid #001e28;
+                    border-radius: 8px;
+                    color: #c8cdcd;
+                    display: grid;
+                    grid-template: " yesterday datepicker tomorrow " 28px/30px max-content 30px;
+                    position: relative;
+
+                    .calendar__navigation {
+                      align-items: center;
+                      cursor: pointer;
+                      display: flex;
+                      height: 100%;
+                      justify-content: center;
+                      width: 100%;
+                    }
+
+                    .calendar__navigation--yesterday {
+                      grid-area: yesterday;
+                    }
+
+                    .calendar__datepicker {
+                      align-items: center;
+                      column-gap: 8px;
+                      cursor: pointer;
+                      display: grid;
+                      grid-area: datepicker;
+                      grid-auto-flow: column;
+                      height: 100%;
+                      justify-content: center;
+                      padding: 0 12px;
+
+                      .datepicker {
+                        font-size: 12px;
+                        font-weight: 700;
+                        background-color: #010a0f;
+                        color: #c8cdcd;
+                        border: none;
+                        letter-spacing: 0.4px;
+                        text-transform: uppercase;
+                      }
+                    }
+
+                    .calendar__navigation--tomorrow {
+                      grid-area: tomorrow;
+                      transform: rotate(180deg);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Footer
 .footerContainer {
   background: #010a0f;
   display: grid;

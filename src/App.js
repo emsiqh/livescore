@@ -1,15 +1,22 @@
-import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Box } from '@mui/material';
 
-import { Navbar, MenuTop, Footer } from './components';
+import { Navbar, MenuTop, Footer, Container, LeagueDetail } from './components';
 
 const App = () => {
     return (
-        <Box>
-            <Navbar />
-            <MenuTop />
-            <Footer />
-        </Box>
+        <BrowserRouter>
+            <Box>
+                <Navbar />
+                <MenuTop />
+                <Routes>
+                    <Route path='/' exact element={<Container />} />
+                    <Route path='/league/:leagueName' element={<Container />} />
+                </Routes>
+                <Footer />
+            </Box>
+        </BrowserRouter>
+
     )
 }
 

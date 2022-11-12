@@ -32,7 +32,7 @@ const MenuTop = () => {
         },
         {
             id: 6,
-            name: 'Champion league',
+            name: 'Eredivisie',
             link: '',
         },
     ]
